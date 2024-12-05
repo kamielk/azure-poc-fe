@@ -1,0 +1,10 @@
+<div class="pokemon-container">
+  @for(pokemon of pokemonList; track $index) {
+  <app-pokemon-display
+    class="app-pokemon-display"
+    [name]="pokemon.name"
+    [types]="pokemon.types"
+    [blob]="pokemon.imageBlob"
+  ></app-pokemon-display>
+  }
+</div>

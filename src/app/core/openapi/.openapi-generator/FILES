@@ -1,0 +1,14 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+api.module.ts
+api/api.ts
+api/azure-poc.service.ts
+api/azure-poc.serviceInterface.ts
+configuration.ts
+encoder.ts
+index.ts
+model/models.ts
+model/pokemon.ts
+param.ts
+variables.ts

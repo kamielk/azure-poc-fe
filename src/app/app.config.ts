@@ -1,8 +1,16 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import {NbThemeModule} from '@nebular/theme'
 import { routes } from './app.routes';
+import { BASE_PATH } from './core/openapi/variables';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    importProvidersFrom(NbThemeModule.forRoot({ name: 'default' })),
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: BASE_PATH, useValue: 'http://localhost:5150' },
+  ]
 };
